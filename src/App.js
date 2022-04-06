@@ -5,7 +5,7 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense } from './actions/expenses';
+import { startSetExpenses } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import getExpenseTotals from './selectors/expenses-total';
@@ -19,4 +19,9 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('test'));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('test'));
+
+store.dispatch(startSetExpenses()).then(() => {
+    ReactDOM.render(jsx, document.getElementById('test'));
+});
+
