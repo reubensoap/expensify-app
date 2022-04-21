@@ -1,5 +1,4 @@
 import * as firebase from 'firebase';
-import moment from 'moment';
 
 const firebaseConfig = {
 

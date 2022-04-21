@@ -10,6 +10,7 @@ import { login, logout } from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 import getExpenseTotals from './selectors/expenses-total';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPageComponent';
 
 const store = configureStore();
 
@@ -28,7 +29,7 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('test'));
+ReactDOM.render(<LoadingPage />, document.getElementById('test'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
@@ -44,4 +45,4 @@ firebase.auth().onAuthStateChanged((user) => {
         renderApp();
         history.push('/');
     }
-})
+});
